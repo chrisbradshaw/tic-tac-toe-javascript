@@ -1,0 +1,45 @@
+.square{
+    width:100px;
+    height:100px;
+}
+
+.v{
+    border-left:1px solid #000;
+    border-right:1px solid #000;
+}
+
+.h{
+    border-top:1px solid #000;
+    border-bottom:1px solid #000;
+}
+
+#container{
+    text-align:center;
+}
+
+#board {
+    display: inline-block;
+    margin-top:2%;
+
+}
+.invisible {
+    visibility:hidden;
+}
+.visible {
+    visibility:visible;
+}
+.header {
+  font: 700 30px/1.5 'Indie Flower', cursive;
+  color: #000;
+}
+
+table {
+    background-color: #fff;
+    text-align:center;
+    font: 400 30px/1.5 'Indie Flower', cursive;
+    color: red;
+}
+p {
+    margin-left:25%;
+    margin-right:25%;
+}
