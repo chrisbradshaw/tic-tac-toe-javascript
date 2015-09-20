@@ -3,6 +3,7 @@
 .square{
     width:100px;
     height:100px;
+    border: 1px solid #000;;
 }
 .message {
   font: 700 20px/1.5 'Indie Flower', cursive;
@@ -17,13 +18,13 @@
   font: 400 23px/1.5 'Indie Flower', cursive;
   }
 
-  .play-again:hover {
+.play-again:hover {
     background: #000;
     font: 400 23px/1.5 'Indie Flower', cursive;
     color: #fff;
   }
 
-    .play-again:active {
+.play-again:active {
     background: red;
     font: 400 23px/1.5 'Indie Flower', cursive;
     color: #fff;
