@@ -1,8 +1,8 @@
-//variable for function that runs game
+//put tictactoe game in a function
 
 var tictactoe = (function() {
 
-  // set variables to track turns, define user symbols, current player, and board position status
+  //Create variables to track turn count, X/O symbols, current player, board, and board spaces
 
     var turnCount=0,
         X = 'X',
@@ -46,14 +46,17 @@ var tictactoe = (function() {
   };
 
 
-//jQuery each loop returns compares rows, heights, diagonal to winning combinations
-//if user wins, winIndex is set to -1
-//if user does not win returns false, winIndex is reset and game continues/
+// Create array of winning index combinations called winning combinations
+//set winIndex to -1
+//if user does not win returns false, game continues
 
   var userWins = function() {
     var winCombinations = [ [0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], 
                             [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6] ],
         winIndex = -1;
+
+//run jquery each loop to loop through winning combinations and compare board indexes 
+// set winIndex = index
     $.each( winCombinations, function( index, winCombination ) {
       if( allEqual( winCombination ) ){
         winIndex = index;
@@ -66,16 +69,19 @@ var tictactoe = (function() {
     if( winIndex !== -1 ) {
         return winCombinations[ winIndex ];
 
-    //stops game in event of a tie
+    // If statement to check 9 moves and set as tie
 
     } else if ( turnCount === 9 ) {
         return true; 
+
+    //keep playing
+
     } else {
         return false;
     }
   };
 
-  //tracks instances of 3 consecutive symbols (X, O, open by indexes)
+// function to check === consecutive symbols at board indexes and to verify they !== open
 
     var allEqual = function( indexes ) {
     return ( board[ indexes[0] ] === board[ indexes[1] ] ) &&
@@ -84,8 +90,10 @@ var tictactoe = (function() {
   };
 
 
-//After gameOver, function has run will return message with which current Player has Won , or Tie. 
-//If a user won, will highlight in green winning combination of moves
+  //function displays one of two messages
+  //if array is returned (winIndex)
+  //display currentPlayer as winner/ run showWinFormation function on winIndex
+  //otherwise - it's a tie
 
     var gameOver = function( endFormation ) {
     var resultMessage;
@@ -96,12 +104,13 @@ var tictactoe = (function() {
     } else {
       resultMessage = 'Game Over.  Draw Game';
     }
+
     $( '.message' ).addClass( 'end-message' );
     displayMessage( resultMessage );
 
 
-
-    // Turn off gameboard click listener/ show play again button
+//turn of gameboard listener to prevent user from clicking after game is over
+//display Play Again Button
 
     $('.gameboard').off('click');
     $( '.play-again' ).show().on( 'click', function() {
@@ -110,8 +119,8 @@ var tictactoe = (function() {
 
   };
 
-  // Add a class to highlight the winning squares green to display to users
-  // jquery each loop to add 'winning-square' class to each square part of winning combination
+//showWinFormation uses jQuery each loopg
+//adds a class of 'winning-square' to each square in the winning array
 
   var showWinFormation = function( formation ) {
     $.each( formation, function( index, winPosition ) {
@@ -119,8 +128,13 @@ var tictactoe = (function() {
     });
   };
 
-  // Main game functionality. Adds id to squares that are clicked, verifies movie is validate
-  // if a winning Formation appears, user wins , winning formation is displayed, and player is switched
+  // Main Game Functionality 
+    // play 
+        //sets index = the square id
+        //checks if it's a valid move
+        //makes the move
+        //if a winning Formation the game is over (tie or winner)
+        //otherwise switchs to next players move
 
   var play = function( $square ) {
     var index = +$square.attr( 'id' );
@@ -133,12 +147,14 @@ var tictactoe = (function() {
     }
   };
 
-//return play from tictac toe function
+//return play object
+
   return { play: play };
 
 })();
 
-//loads game into the document window, calls tictactoe.play when a square on game board is clicked
+// $(document).ready function turns gameboard on
+//calls tictactoe.play when gameboard is clicked
 
 $( document ).ready( function() {
   $( '.gameboard' ).on( 'click', '.square', function() {

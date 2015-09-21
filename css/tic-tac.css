@@ -7,15 +7,15 @@
 }
 .message {
   font: 700 20px/1.5 'Indie Flower', cursive;
-  color: red;
+  color: green;
   padding: 10px;
   font-size: 24px;
   border: 2px dotted black;
 }
 
 .play-again {
-  margin-top: 25px;
-  font: 400 23px/1.5 'Indie Flower', cursive;
+    margin-top: -7px;
+    font: 400 23px/1.5 'Indie Flower', cursive;
   }
 
 .play-again:hover {
@@ -42,7 +42,7 @@
 }
 
 .gameboard {
-    margin: 5% 36%;;
+    margin: 3% 36%;
 
 }
 
@@ -70,7 +70,7 @@ table {
     background-color: #fff;
     text-align:center;
     font: 400 30px/1.5 'Indie Flower', cursive;
-    color: green;
+    color: red;
     border: 2px solid black;
 }
 p {
@@ -81,6 +81,6 @@ p {
 }
 
 .winning-square {
-  color: yellow;
-  background: blue;
+  color: #fff;
+  background: red;
 }
