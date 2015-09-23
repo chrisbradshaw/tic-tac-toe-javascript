@@ -1,8 +1,8 @@
 OUTLINE OF CODE
 
-//put tictactoe game in a function
+//create tictactoe
 
-//in this function include:
+//include:
 
 //Create variables to track turn count, X/O symbols, current player, board, and board spaces
 
