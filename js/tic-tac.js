@@ -147,7 +147,7 @@ var tictactoe = (function() {
     }
   };
 
-//return play object
+//return play
 
   return { play: play };
 
