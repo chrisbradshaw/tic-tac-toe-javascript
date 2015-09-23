@@ -1,4 +1,4 @@
-//put tictactoe game in a function
+//create tictactoe 
 
 var tictactoe = (function() {
 
